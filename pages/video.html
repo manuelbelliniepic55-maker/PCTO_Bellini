@@ -8,6 +8,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius, 8px);
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header"><nav class="navbar"><a class="brand" href="../index.html">Manuel Bellini</a><button class="nav-toggle" type="button" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li><li><a href="competenze.html">Competenze</a></li><li><a href="video.html">Video</a></li><li><a href="cybersecurity.html">Cybersecurity</a></li><li><a href="conclusioni.html">Conclusioni</a></li></ul></nav></header>
@@ -28,10 +47,9 @@
       <div class="video-grid">
         <article class="video-card">
           <div class="video-frame">
-            <video controls muted playsinline preload="metadata">
-              <source src="../assets/videos/giornata-pcto-1.mp4" type="video/mp4">
-              Il browser non supporta la riproduzione video.
-            </video>
+            <div class="video-container">
+              <iframe src="LINK_YOUTUBE_1" title="Il cane robot in movimento" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
           <div class="video-copy">
             <p class="eyebrow">Video 01</p>
@@ -41,10 +59,9 @@
 
         <article class="video-card">
           <div class="video-frame">
-            <video controls muted playsinline preload="metadata">
-              <source src="../assets/videos/giornata-pcto-2.mp4" type="video/mp4">
-              Il browser non supporta la riproduzione video.
-            </video>
+            <div class="video-container">
+              <iframe src="LINK_YOUTUBE_2" title="Osservazione del sistema" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
           <div class="video-copy">
             <p class="eyebrow">Video 02</p>
