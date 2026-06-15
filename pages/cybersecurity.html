@@ -8,6 +8,112 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .quiz-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .quiz-question {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(15, 52, 96, 0.04);
+      display: none;
+    }
+    .quiz-question.active {
+      display: block;
+    }
+    .quiz-question h3 {
+      margin-top: 0;
+      color: var(--text);
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quiz-btn {
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .quiz-btn:hover {
+      background: var(--line);
+      transform: translateX(4px);
+    }
+    .quiz-btn.correct {
+      background-color: #d1e7dd !important;
+      border-color: #badbcc !important;
+      color: #0f5132 !important;
+    }
+    .quiz-btn.wrong {
+      background-color: #f8d7da !important;
+      border-color: #f5c2c7 !important;
+      color: #842029 !important;
+    }
+    .quiz-explanation {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-left: 4px solid var(--blue);
+      background: #f0f6ff;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: none;
+    }
+    .quiz-disabled {
+      pointer-events: none;
+    }
+    .quiz-next-btn {
+      margin-top: 20px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      display: none;
+      transition: background 0.2s;
+    }
+    .quiz-next-btn:hover {
+      background: var(--blue-dark);
+    }
+    #quiz-result {
+      background: var(--surface);
+      border: 2px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      display: none;
+      box-shadow: 0 4px 12px rgba(15, 52, 96, 0.08);
+    }
+    #quiz-result h3 {
+      color: var(--blue);
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
+    #quiz-score {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 16px 0;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -41,7 +147,7 @@
         <article class="card">
           <span class="emoji">💉</span>
           <h3>SQL Injection</h3>
-          <p>Ho studiato come la mancata validazione degli input permetta di manipolare le query SQL del database. Abbiamo analizzato la mitigazione tecnica tramite l'adozione di Prepared Statements e query parametrizzate.</p>
+          <p>Ho studiato come la mancata validazione degli input permetta di manipolare las query SQL del database. Abbiamo analizzato la mitigazione tecnica tramite l'adozione di Prepared Statements e query parametrizzate.</p>
         </article>
         <article class="card">
           <span class="emoji">💻</span>
@@ -64,7 +170,7 @@
         </div>
         <div class="text-panel">
           <p>
-            Questo laboratorio mi ha interessato maggiormente perché unisce aspetti diversi: logica, analisi, problem solving e sicurezza dei sistemi applicativi. Ogni vulnerabilità richiede di comprendere a fondo las specifiche del protocollo o del codice sorgente, individuando i punti deboli strutturali e stimando l'impatto reale di un potenziale attacco.
+            Questo laboratorio mi ha interessato maggiormente perché unisce aspetti diversi: logica, analisi, problem solving e sicurezza dei sistemi applicativi. Ogni vulnerabilità richiede di comprendere a fondo le specifiche del protocollo o del codice sorgente, individuando i punti deboli strutturali e stimando l'impatto reale di un potenziale attacco.
           </p>
           <p>
             La Cybersecurity mi ha fatto percepire il lato più concreto e responsabile dell'informatica: proteggere l'integrità, la disponibilità e la riservatezza delle informazioni. Questo ambito rappresenta un perfetto punto di contatto interdisciplinare con il programma scolastico di Sistemi e Reti (crittografia SSL/TLS, VPN e configurazione di Firewall) ed Educazione Civica, legandosi direttamente alla tutela legislativa della privacy dei cittadini definita dal GDPR europeo.
@@ -77,9 +183,91 @@
       <h2>Cosa ho imparato</h2>
       <ul class="learning-list">
         <li>La sicurezza web richiede controlli rigorosi e igienizzazione sistematica degli input utente (Input Sanitization).</li>
-        <li>SQL Injection e Command Injection mostrano l'importance dell'approccio "Security by Design" nello sviluppo software.</li>
-        <li>La protezione dei dati passa dall'uso combinato di crittografia, canali di trasporto sicuri (HTTPS) e consapevolezza dei rischi sistemici.</li>
+        <li>SQL Injection e Command Injection mostrano l'importanza dell'approccio "Security by Design" nello sviluppo software.</li>
+        <li>La protezione dei dati passa dall'uso combinato di crittografia, canali di trasporto sicuro (HTTPS) e consapevolezza dei rischi sistemici.</li>
       </ul>
+    </section>
+
+    <section class="section reveal">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <p class="eyebrow">Verifica delle competenze</p>
+        <h2>Quick Lab Quiz: Mettiti alla prova</h2>
+        <p>Un test interattivo dinamico a risposta singola per analizzare i concetti studiati.</p>
+      </div>
+
+      <div class="quiz-container">
+        <div class="quiz-question active" data-correct="1">
+          <h3>1. Qual è il metodo più efficace per prevenire definitivamente gli attacchi di tipo SQL Injection?</h3>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(this, 0)">Nascondere i messaggi di errore del database lato Client.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 1)">Utilizzare Prepared Statements (Query Parametrizzate).</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 2)">Affidarsi esclusivamente a un Firewall per bloccare i caratteri speciali.</button>
+          </div>
+          <div class="quiz-explanation">
+            <strong>Risposta Esatta!</strong> I Prepared Statements forzano il database a trattare l'input dell'utente strettamente come un parametro dati e mai come codice SQL eseguibile, neutralizzando il tentativo di injection alla radice.
+          </div>
+          <button class="quiz-next-btn" onclick="nextQuestion()">Prossima Domanda &rarr;</button>
+        </div>
+
+        <div class="quiz-question" data-correct="0">
+          <h3>2. Nella protezione delle password, a cosa serve la tecnica del "Salting"?</h3>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ad aggiungere una stringa casuale univoca alla password prima dell'hashing per contrastare le Rainbow Tables.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 1)">A cifrare la password in modo di poterla decifrare in chiaro sul server.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 2)">A velocizzare il tempo di calcolo dell'algoritmo di hash sul database.</button>
+          </div>
+          <div class="quiz-explanation">
+            <strong>Risposta Esatta!</strong> Il "sale" garantisce che due password identiche generino hash completamente differenti, rendendo del tutto inutili i dizionari di hash precomputati (Rainbow Tables).
+          </div>
+          <button class="quiz-next-btn" onclick="nextQuestion()">Prossima Domanda &rarr;</button>
+        </div>
+
+        <div class="quiz-question" data-correct="2">
+          <h3>3. Quale principio fondamentale della Cybersecurity viene violato durante una Command Injection riuscita?</h3>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(this, 0)">La disponibilità della rete a causa di una saturazione di banda.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 1)">La validità e la cifratura dei certificati digitali SSL/TLS.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 2)">Il controllo degli accessi e l'isolamento dei privilegi operativi del sistema ospitante.</button>
+          </div>
+          <div class="quiz-explanation">
+            <strong>Risposta Esatta!</strong> Con la Command Injection, l'attaccante riesce a fare eseguire comandi arbitrari direttamente alla shell del sistema operativo del server, evadendo i vincoli dell'applicazione web e manipolandone i privilegi.
+          </div>
+          <button class="quiz-next-btn" onclick="nextQuestion()">Prossima Domanda &rarr;</button>
+        </div>
+
+        <div class="quiz-question" data-correct="0">
+          <h3>4. Che cosa stabilisce il principio "Security by Design" promosso anche dal GDPR?</h3>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(this, 0)">Che la sicurezza e la protezione dei dati devono essere integrate fin dalla fase di progettazione di un sistema.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 1)">Che l'interfaccia grafica del sito web deve essere complessa per disorientare gli attaccanti.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 2)">Che i controlli di sicurezza vanno effettuati solo dopo che l'applicazione è stata pubblicata online.</button>
+          </div>
+          <div class="quiz-explanation">
+            <strong>Risposta Esatta!</strong> La Security by Design impone di considerare la sicurezza come un requisito strutturale primario fin dai primi stadi del ciclo di vita del software, riducendo i rischi a monte.
+          </div>
+          <button class="quiz-next-btn" onclick="nextQuestion()">Prossima Domanda &rarr;</button>
+        </div>
+
+        <div class="quiz-question" data-correct="1">
+          <h3>5. Quale protocollo del livello applicativo assicura la riservatezza dei dati durante il trasporto web grazie a SSL/TLS?</h3>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(this, 0)">HTTP in chiaro.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 1)">HTTPS.</button>
+            <button class="quiz-btn" onclick="checkAnswer(this, 2)">DNS.</button>
+          </div>
+          <div class="quiz-explanation">
+            <strong>Risposta Esatta!</strong> Il protocollo HTTPS stabilisce un canale cifrato simmetricamente tra client e server, impedendo ad attaccanti intermedi di intercettare o alterare i dati scambiati.
+          </div>
+          <button class="quiz-next-btn" onclick="nextQuestion()">Mostra Risultato &rarr;</button>
+        </div>
+
+        <div id="quiz-result">
+          <h3>Test Completato!</h3>
+          <p>Il tuo punteggio finale è:</p>
+          <div id="quiz-score">0 / 5</div>
+          <p id="quiz-evaluation"></p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -87,6 +275,64 @@
     <p>Manuel Bellini - I.I.S. Giorgi-Woolf - Classe V°Di</p>
     <p>PCTO 2024/2025 - Università degli Studi di Roma Tor Vergata</p>
   </footer>
+
   <script src="../script.js"></script>
+  <script>
+    let currentQuestionIdx = 0;
+    let score = 0;
+    const questions = document.querySelectorAll('.quiz-question');
+    const totalQuestions = questions.length;
+
+    function checkAnswer(button, index) {
+      const questionBlock = questions[currentQuestionIdx];
+      const correctIdx = parseInt(questionBlock.getAttribute('data-correct'));
+      const optionsBox = questionBlock.querySelector('.quiz-options');
+      const options = questionBlock.querySelectorAll('.quiz-btn');
+      const explanation = questionBlock.querySelector('.quiz-explanation');
+      const nextBtn = questionBlock.querySelector('.quiz-next-btn');
+
+      optionsBox.classList.add('quiz-disabled');
+
+      if (index === correctIdx) {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options[correctIdx].classList.add('correct');
+      }
+
+      explanation.style.display = 'block';
+      nextBtn.style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+      questions[currentQuestionIdx].classList.remove('active');
+      currentQuestionIdx++;
+
+      if (currentQuestionIdx < totalQuestions) {
+        questions[currentQuestionIdx].classList.add('active');
+      } else {
+        showFinalResult();
+      }
+    }
+
+    function showFinalResult() {
+      const resultBlock = document.getElementById('quiz-result');
+      const scoreDisplay = document.getElementById('quiz-score');
+      const evaluationDisplay = document.getElementById('quiz-evaluation');
+
+      scoreDisplay.innerText = score + ' / ' + totalQuestions;
+
+      if (score === totalQuestions) {
+        evaluationDisplay.innerText = 'Eccellente! Hai risposto correttamente a tutte le domande. Ottima preparazione tecnica!';
+      } else if (score >= 3) {
+        evaluationDisplay.innerText = 'Buon lavoro! Hai una solida comprensione delle basi della sicurezza informatica.';
+      } else {
+        evaluationDisplay.innerText = 'Puoi fare di meglio. Rivedi i concetti strutturali di Cybersecurity e riprova.';
+      }
+
+      resultBlock.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
